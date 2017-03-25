@@ -10,9 +10,9 @@ android {
         versionCode 1
         versionName "1.0"
         resValue "string", "versionName", versionName
-        jackOptions {
-            enabled true
-        }
+    }
+    dataBinding {
+        enabled true
     }
 
     if(project.hasProperty("keyStore")) {

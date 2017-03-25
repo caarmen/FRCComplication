@@ -15,81 +15,89 @@
   You should have received a copy of the GNU General Public License
   along with this program; if not, see <http://www.gnu.org/licenses/>.
 -->
-<android.support.wearable.view.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="ca.rmen.android.frc.complication.AboutActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ScrollView
+    <android.support.wearable.view.BoxInsetLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none"
-        app:layout_box="left|right">
+        android:layout_height="match_parent"
+        tools:context="ca.rmen.android.frc.complication.AboutActivity">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:scrollbars="none"
+            app:layout_box="left|right">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="36dp"
-                android:text="@string/app_name"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/versionName"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="36dp"
+                    android:text="@string/app_name"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/about_copyright"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/versionName"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
-            <TextView
-                android:id="@+id/about_license"
-                style="@style/about_link_text"
-                android:text="@string/about_license" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/about_copyright"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/about_source"
-                style="@style/about_link_text"
-                android:text="@string/about_source" />
+                <TextView
+                    android:id="@+id/about_license"
+                    style="@style/about_link_text"
+                    app:link="@{@string/about_link_license}"
+                    android:text="@string/about_license" />
 
-            <TextView
-                android:id="@+id/about_wiki"
-                style="@style/about_link_text"
-                android:text="@string/about_wiki" />
+                <TextView
+                    android:id="@+id/about_source"
+                    style="@style/about_link_text"
+                    app:link="@{@string/about_link_source}"
+                    android:text="@string/about_source" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/about_credits"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/about_wiki"
+                    style="@style/about_link_text"
+                    app:link="@{@string/about_link_wiki}"
+                    android:text="@string/about_wiki" />
 
-            <TextView
-                android:id="@+id/about_credits_equinox_tool"
-                style="@style/about_link_text"
-                android:text="@string/about_credits_equinox_tool" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/about_credits"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/about_credits_roman_numeral_algorithm"
-                style="@style/about_link_text"
-                android:layout_marginBottom="36dp"
-                android:text="@string/about_credits_roman_numeral_algorithm" />
-        </LinearLayout>
-    </ScrollView>
+                <TextView
+                    android:id="@+id/about_credits_equinox_tool"
+                    style="@style/about_link_text"
+                    app:link="@{@string/about_credits_link_equinox_tool}"
+                    android:text="@string/about_credits_equinox_tool" />
 
-</android.support.wearable.view.BoxInsetLayout>
+                <TextView
+                    android:id="@+id/about_credits_roman_numeral_algorithm"
+                    style="@style/about_link_text"
+                    android:layout_marginBottom="36dp"
+                    app:link="@{@string/about_credits_link_roman_numeral_algorithm}"
+                    android:text="@string/about_credits_roman_numeral_algorithm" />
+            </LinearLayout>
+        </ScrollView>
+
+    </android.support.wearable.view.BoxInsetLayout>
+</layout>
