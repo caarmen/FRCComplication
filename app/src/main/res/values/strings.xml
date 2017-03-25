@@ -27,7 +27,7 @@
     <string name="setting_method_summary">How the first day of each year is determined: %s</string>
     <string name="setting_roman_numeral">Roman numeral year</string>
     <string name="setting_language">Language</string>
-    <string name="setting_language_summary">%s</string>
+    <string name="setting_language_summary" translatable="false">%s</string>
     <string name="setting_key_language" translatable="false">setting_language</string>
     <string name="setting_key_method" translatable="false">setting_method</string>
     <string name="setting_key_roman_numeral" translatable="false">setting_roman_numeral</string>
