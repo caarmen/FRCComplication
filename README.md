@@ -1,7 +1,7 @@
 # French Revolutionary Calendar Android Wear Complications
 This app provides complications for Android Wear wachfaces.
 
-## Complications:
+## Complications
 The available complications are:
 * The date. For example: 5 Germinal CCXXV
   - You may choose to display the year in Arabic or Roman numerals
@@ -12,7 +12,7 @@ The available complications are:
 Example watch face displaying all four complications:
 <img src="screenshots/screenshot-watchface.png"/>
 
-## Settings:
+## Settings
 The following settings are available:
 * The method used to calculate the first day of the year.  Available choices are Romme, Equinox, and Von Mädler
 * Displaying the date year in Roman numerals.
