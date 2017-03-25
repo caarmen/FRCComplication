@@ -22,7 +22,7 @@
     <android.support.wearable.view.BoxInsetLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="ca.rmen.android.frc.complication.AboutActivity">
+        tools:context="ca.rmen.android.frc.complications.AboutActivity">
 
         <ScrollView
             android:layout_width="match_parent"

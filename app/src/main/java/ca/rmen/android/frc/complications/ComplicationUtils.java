@@ -16,7 +16,7 @@
  * along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
-package ca.rmen.android.frc.complication;
+package ca.rmen.android.frc.complications;
 
 import android.content.ComponentName;
 import android.content.Context;

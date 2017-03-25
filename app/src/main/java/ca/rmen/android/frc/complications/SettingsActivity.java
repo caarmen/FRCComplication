@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
-package ca.rmen.android.frc.complication;
+package ca.rmen.android.frc.complications;
 
 import android.app.Activity;
 import android.content.ComponentName;

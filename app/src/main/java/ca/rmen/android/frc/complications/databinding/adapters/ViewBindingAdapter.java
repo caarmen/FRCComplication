@@ -16,7 +16,7 @@
  * along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
-package ca.rmen.android.frc.complication.databinding.adapters;
+package ca.rmen.android.frc.complications.databinding.adapters;
 
 import android.app.Activity;
 import android.content.Context;
@@ -28,7 +28,7 @@ import android.view.View;
 
 import com.google.android.wearable.intent.RemoteIntent;
 
-import ca.rmen.android.frc.complication.R;
+import ca.rmen.android.frc.complications.R;
 
 public class ViewBindingAdapter {
     @BindingAdapter("link")

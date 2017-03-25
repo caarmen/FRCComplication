@@ -48,7 +48,7 @@
     <Preference
         android:icon="@drawable/ic_pref_about_padded"
         android:title="@string/about">
-        <intent android:action="ca.rmen.android.frc.complication.AboutActivity" />
+        <intent android:action="ca.rmen.android.frc.complications.AboutActivity" />
     </Preference>
 
 </PreferenceScreen>

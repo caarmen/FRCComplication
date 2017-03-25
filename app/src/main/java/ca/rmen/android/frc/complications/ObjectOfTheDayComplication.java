@@ -16,18 +16,18 @@
  * along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
-package ca.rmen.android.frc.complication;
+package ca.rmen.android.frc.complications;
 
 import android.support.wearable.complications.ComplicationData;
 import android.support.wearable.complications.ComplicationManager;
 import android.support.wearable.complications.ComplicationProviderService;
 import android.support.wearable.complications.ComplicationText;
 
-public class WeekdayComplication extends ComplicationProviderService {
+public class ObjectOfTheDayComplication extends ComplicationProviderService {
     @Override
     public void onComplicationUpdate(int complicationId, int type, ComplicationManager complicationManager) {
         ComplicationData data = new ComplicationData.Builder(type)
-                .setShortText(ComplicationText.plainText(ComplicationUtils.getNow(this).getWeekdayName()))
+                .setLongText(ComplicationText.plainText(ComplicationUtils.getNow(this).getDayOfYear()))
                 .build();
         complicationManager.updateComplicationData(complicationId, data);
     }

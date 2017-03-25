@@ -17,7 +17,7 @@
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="ca.rmen.android.frc.complication">
+    package="ca.rmen.android.frc.complications">
 
     <uses-feature android:name="android.hardware.type.watch" />
 
@@ -30,7 +30,7 @@
         android:theme="@android:style/Theme.DeviceDefault"
         tools:ignore="GoogleAppIndexingWarning">
         <service
-            android:name=".WeekdayComplication"
+            android:name="ca.rmen.android.frc.complications.WeekdayComplication"
             android:icon="@drawable/ic_flower"
             android:label="@string/complication_weekday"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
@@ -42,14 +42,14 @@
                 android:value="SHORT_TEXT" />
             <meta-data
                 android:name="android.support.wearable.complications.PROVIDER_CONFIG_ACTION"
-                android:value="ca.rmen.android.complication.settings" />
+                android:value="ca.rmen.android.complications.settings" />
 
             <intent-filter>
                 <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
             </intent-filter>
         </service>
         <service
-            android:name=".DateComplication"
+            android:name="ca.rmen.android.frc.complications.DateComplication"
             android:icon="@drawable/ic_flower"
             android:label="@string/complication_date"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
@@ -61,14 +61,14 @@
                 android:value="LONG_TEXT" />
             <meta-data
                 android:name="android.support.wearable.complications.PROVIDER_CONFIG_ACTION"
-                android:value="ca.rmen.android.complication.settings" />
+                android:value="ca.rmen.android.complications.settings" />
 
             <intent-filter>
                 <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
             </intent-filter>
         </service>
         <service
-            android:name=".TimeComplication"
+            android:name="ca.rmen.android.frc.complications.TimeComplication"
             android:icon="@drawable/ic_flower"
             android:label="@string/complication_time"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
@@ -84,7 +84,7 @@
             </intent-filter>
         </service>
         <service
-            android:name=".ObjectOfTheDayComplication"
+            android:name="ca.rmen.android.frc.complications.ObjectOfTheDayComplication"
             android:icon="@drawable/ic_flower"
             android:label="@string/complication_object_of_the_day"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
@@ -96,27 +96,27 @@
                 android:value="LONG_TEXT" />
             <meta-data
                 android:name="android.support.wearable.complications.PROVIDER_CONFIG_ACTION"
-                android:value="ca.rmen.android.complication.settings" />
+                android:value="ca.rmen.android.complications.settings" />
 
             <intent-filter>
                 <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
             </intent-filter>
         </service>
 
-        <activity android:name=".SettingsActivity">
+        <activity android:name="ca.rmen.android.frc.complications.SettingsActivity">
             <intent-filter>
-                <action android:name="ca.rmen.android.complication.settings" />
+                <action android:name="ca.rmen.android.complications.settings" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.support.wearable.complications.category.PROVIDER_CONFIG" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".AboutActivity"
+            android:name="ca.rmen.android.frc.complications.AboutActivity"
             android:label="@string/about">
             <!-- Declare the intent filter to open this activity from the settings screen -->
             <intent-filter>
-                <action android:name="ca.rmen.android.frc.complication.AboutActivity" />
+                <action android:name="ca.rmen.android.frc.complications.AboutActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
