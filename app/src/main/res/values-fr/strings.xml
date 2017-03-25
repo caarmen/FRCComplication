@@ -26,4 +26,13 @@
     <string name="setting_method_summary">Comment le premier jour de l\'année est déterminé: %s</string>
     <string name="setting_roman_numeral">Année en chiffres romains</string>
     <string name="settings">Préférences</string>
+    <string name="about">À propos</string>
+    <string name="about_credits">Remerciments :</string>
+    <string name="about_credits_equinox_tool">AstroLib C++, programme de Mark Huss, qui détermine le premier jour de l\'automne de chaque année</string>
+    <string name="about_credits_roman_numeral_algorithm">Fraser Chapman pour l\'algorithme de calcul des chiffres romains</string>
+    <string name="about_license">License : GNU GPLv3</string>
+    <string name="about_link_opened_on_phone">Ouvert sur téléphone</string>
+    <string name="about_source">Code source</string>
+    <string name="about_wiki">À propos du calendrier</string>
+    <string name="about_link_wiki">http://fr.wikipedia.org/wiki/Calendrier_républicain</string>
 </resources>

@@ -45,4 +45,10 @@
         android:summary="@string/setting_language_summary"
         android:title="@string/setting_language" />
 
+    <Preference
+        android:icon="@drawable/ic_pref_about_padded"
+        android:title="@string/about">
+        <intent android:action="ca.rmen.android.frc.complication.AboutActivity" />
+    </Preference>
+
 </PreferenceScreen>

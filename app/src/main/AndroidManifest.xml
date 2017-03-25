@@ -27,7 +27,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.DeviceDefault">
-
         <service
             android:name=".WeekdayComplication"
             android:icon="@drawable/ic_flower"
@@ -41,7 +40,7 @@
                 android:value="SHORT_TEXT" />
             <meta-data
                 android:name="android.support.wearable.complications.PROVIDER_CONFIG_ACTION"
-                android:value="ca.rmen.android.complication.settings"/>
+                android:value="ca.rmen.android.complication.settings" />
 
             <intent-filter>
                 <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
@@ -60,7 +59,7 @@
                 android:value="LONG_TEXT" />
             <meta-data
                 android:name="android.support.wearable.complications.PROVIDER_CONFIG_ACTION"
-                android:value="ca.rmen.android.complication.settings"/>
+                android:value="ca.rmen.android.complication.settings" />
 
             <intent-filter>
                 <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
@@ -95,7 +94,7 @@
                 android:value="LONG_TEXT" />
             <meta-data
                 android:name="android.support.wearable.complications.PROVIDER_CONFIG_ACTION"
-                android:value="ca.rmen.android.complication.settings"/>
+                android:value="ca.rmen.android.complication.settings" />
 
             <intent-filter>
                 <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
@@ -104,9 +103,20 @@
 
         <activity android:name=".SettingsActivity">
             <intent-filter>
-                <action android:name="ca.rmen.android.complication.settings"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.support.wearable.complications.category.PROVIDER_CONFIG"/>
+                <action android:name="ca.rmen.android.complication.settings" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.support.wearable.complications.category.PROVIDER_CONFIG" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/about">
+            <!-- Declare the intent filter to open this activity from the settings screen -->
+            <intent-filter>
+                <action android:name="ca.rmen.android.frc.complication.AboutActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>

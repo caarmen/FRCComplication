@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- https://github.com/BoD/CineToday/blob/feature/wear-2/app/src/main/res/drawable/ic_settings_refresh_white_24dp.xml -->
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/ic_pref_icon_bg" />
+    <item
+        android:bottom="8dp"
+        android:drawable="@drawable/ic_pref_about"
+        android:left="8dp"
+        android:right="8dp"
+        android:top="8dp" />
+</layer-list>
