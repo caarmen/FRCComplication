@@ -25,6 +25,7 @@
         android:dialogTitle="@string/setting_method"
         android:entries="@array/setting_method_labels"
         android:entryValues="@array/setting_method_values"
+        android:icon="@drawable/ic_pref_method_padded"
         android:key="@string/setting_key_method"
         android:summary="@string/setting_method_summary"
         android:title="@string/setting_method" />
@@ -39,6 +40,7 @@
         android:dialogTitle="@string/setting_language"
         android:entries="@array/setting_language_labels"
         android:entryValues="@array/setting_language_values"
+        android:icon="@drawable/ic_pref_language_padded"
         android:key="@string/setting_key_language"
         android:summary="@string/setting_language_summary"
         android:title="@string/setting_language" />
