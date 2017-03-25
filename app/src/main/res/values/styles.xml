@@ -16,15 +16,16 @@
   along with this program; if not, see <http://www.gnu.org/licenses/>.
 -->
 <resources>
-    <string name="app_name">Calendrier républicain</string>
-    <string name="complication_date">Date</string>
-    <string name="complication_object_of_the_day">Objet du jour</string>
-    <string name="complication_time">Heure décimale</string>
-    <string name="complication_weekday">Jour de semaine</string>
-    <string name="setting_language">Langue</string>
-    <string name="setting_method">Méthode de calcul</string>
-    <string name="setting_method_summary">Comment le premier jour de l\'année est déterminé: %s</string>
-    <string name="setting_roman_numeral">Année en chiffres romains</string>
-    <string name="settings">Préférences</string>
-    <string name="about">À propos</string>
+
+    <style name="about_link_text">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:drawableStart">@drawable/ic_about_link</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
 </resources>
