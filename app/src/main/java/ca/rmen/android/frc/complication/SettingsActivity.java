@@ -33,6 +33,12 @@ public class SettingsActivity extends Activity {
         setResult(RESULT_OK);
     }
 
+    @Override
+    protected void onDestroy() {
+        ComplicationUtils.updateAllComplications(this);
+        super.onDestroy();
+    }
+
     public static class SettingsFragment extends PreferenceFragment {
         @Override
         public void onCreate(@Nullable Bundle savedInstanceState) {

@@ -18,9 +18,12 @@
 
 package ca.rmen.android.frc.complication;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.wearable.complications.ComplicationProviderService;
+import android.support.wearable.complications.ProviderUpdateRequester;
 
 import java.util.GregorianCalendar;
 import java.util.Locale;
@@ -31,6 +34,19 @@ import ca.rmen.lfrc.FrenchRevolutionaryCalendarDate;
 final class ComplicationUtils {
     private ComplicationUtils() {
         // prevent instantiation
+    }
+
+    static void updateAllComplications(Context context) {
+        updateComplications(context, DateComplication.class);
+        updateComplications(context, ObjectOfTheDayComplication.class);
+        updateComplications(context, TimeComplication.class);
+        updateComplications(context, WeekdayComplication.class);
+    }
+
+    private static void updateComplications(Context context, Class<? extends ComplicationProviderService> providerClass) {
+        ComponentName componentName = new ComponentName(context, providerClass);
+        ProviderUpdateRequester requester = new ProviderUpdateRequester(context, componentName);
+        requester.requestUpdateAll();
     }
 
     static FrenchRevolutionaryCalendarDate getNow(Context context) {
