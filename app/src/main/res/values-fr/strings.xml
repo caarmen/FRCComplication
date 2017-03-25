@@ -35,4 +35,9 @@
     <string name="about_source">Code source</string>
     <string name="about_wiki">À propos du calendrier</string>
     <string name="about_link_wiki">http://fr.wikipedia.org/wiki/Calendrier_républicain</string>
+    <string-array name="setting_method_labels">
+        <item>Romme</item>
+        <item>Équinoxe</item>
+        <item>von Mädler</item>
+    </string-array>
 </resources>

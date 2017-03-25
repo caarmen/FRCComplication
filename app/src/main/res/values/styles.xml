@@ -19,7 +19,7 @@
 
     <style name="about_link_text">
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:background">?android:attr/selectableItemBackground</item>
         <item name="android:clickable">true</item>
         <item name="android:drawableStart">@drawable/ic_about_link</item>
