@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  French Revolutionary Calendar Android Wear Complications
+  Copyright (C) 2017 Carmen Alvarez
+  
+  This program is free software; you can redistribute it and/or
+  modify it under the terms of the GNU General Public License
+  as published by the Free Software Foundation; either version 3
+  of the License, or (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, see <http://www.gnu.org/licenses/>.
+
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="widget_settings"
+    android:title="@string/settings">
+
+    <ListPreference
+        android:defaultValue="1"
+        android:dialogTitle="@string/setting_method"
+        android:entries="@array/setting_method_labels"
+        android:entryValues="@array/setting_method_values"
+        android:key="@string/setting_key_method"
+        android:summary="@string/setting_method_summary"
+        android:title="@string/setting_method" />
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="@string/setting_key_roman_numeral"
+        android:title="@string/setting_roman_numeral" />
+
+    <ListPreference
+        android:defaultValue="@string/setting_default_language"
+        android:dialogTitle="@string/setting_language"
+        android:entries="@array/setting_language_labels"
+        android:entryValues="@array/setting_language_values"
+        android:key="@string/setting_key_language"
+        android:summary="@string/setting_language_summary"
+        android:title="@string/setting_language" />
+
+</PreferenceScreen>

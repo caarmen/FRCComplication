@@ -1,4 +1,4 @@
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   French Revolutionary Calendar Android Wear Complications
   Copyright (C) 2017 Carmen Alvarez
 
@@ -14,21 +14,22 @@
 
   You should have received a copy of the GNU General Public License
   along with this program; if not, see <http://www.gnu.org/licenses/>.
-
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ca.rmen.android.frc.complication">
 
     <uses-feature android:name="android.hardware.type.watch" />
+
     <application
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.DeviceDefault"
-        android:fullBackupContent="@xml/backup_descriptor">
+        android:theme="@android:style/Theme.DeviceDefault">
+
         <service
-            android:name="ca.rmen.android.frc.complication.WeekdayComplication"
+            android:name=".WeekdayComplication"
             android:icon="@drawable/ic_flower"
             android:label="@string/complication_weekday"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
@@ -38,13 +39,16 @@
             <meta-data
                 android:name="android.support.wearable.complications.SUPPORTED_TYPES"
                 android:value="SHORT_TEXT" />
+            <meta-data
+                android:name="android.support.wearable.complications.PROVIDER_CONFIG_ACTION"
+                android:value="ca.rmen.android.complication.settings"/>
 
             <intent-filter>
                 <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
             </intent-filter>
         </service>
         <service
-            android:name="ca.rmen.android.frc.complication.DateComplication"
+            android:name=".DateComplication"
             android:icon="@drawable/ic_flower"
             android:label="@string/complication_date"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
@@ -54,13 +58,16 @@
             <meta-data
                 android:name="android.support.wearable.complications.SUPPORTED_TYPES"
                 android:value="LONG_TEXT" />
+            <meta-data
+                android:name="android.support.wearable.complications.PROVIDER_CONFIG_ACTION"
+                android:value="ca.rmen.android.complication.settings"/>
 
             <intent-filter>
                 <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
             </intent-filter>
         </service>
         <service
-            android:name="ca.rmen.android.frc.complication.TimeComplication"
+            android:name=".TimeComplication"
             android:icon="@drawable/ic_flower"
             android:label="@string/complication_time"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
@@ -76,7 +83,7 @@
             </intent-filter>
         </service>
         <service
-            android:name="ca.rmen.android.frc.complication.ObjectOfTheDayComplication"
+            android:name=".ObjectOfTheDayComplication"
             android:icon="@drawable/ic_flower"
             android:label="@string/complication_object_of_the_day"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
@@ -86,11 +93,22 @@
             <meta-data
                 android:name="android.support.wearable.complications.SUPPORTED_TYPES"
                 android:value="LONG_TEXT" />
+            <meta-data
+                android:name="android.support.wearable.complications.PROVIDER_CONFIG_ACTION"
+                android:value="ca.rmen.android.complication.settings"/>
 
             <intent-filter>
                 <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
             </intent-filter>
         </service>
+
+        <activity android:name=".SettingsActivity">
+            <intent-filter>
+                <action android:name="ca.rmen.android.complication.settings"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.support.wearable.complications.category.PROVIDER_CONFIG"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

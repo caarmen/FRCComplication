@@ -27,7 +27,7 @@ public class WeekdayComplication extends ComplicationProviderService {
     @Override
     public void onComplicationUpdate(int complicationId, int type, ComplicationManager complicationManager) {
         ComplicationData data = new ComplicationData.Builder(type)
-                .setShortText(ComplicationText.plainText(ComplicationUtils.getNow().getWeekdayName()))
+                .setShortText(ComplicationText.plainText(ComplicationUtils.getNow(this).getWeekdayName()))
                 .build();
         complicationManager.updateComplicationData(complicationId, data);
     }

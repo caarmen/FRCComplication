@@ -31,7 +31,7 @@ import ca.rmen.lfrc.FrenchRevolutionaryCalendarDate;
 public class TimeComplication extends ComplicationProviderService {
     @Override
     public void onComplicationUpdate(int complicationId, int type, ComplicationManager complicationManager) {
-        FrenchRevolutionaryCalendarDate frcDate = ComplicationUtils.getNow();
+        FrenchRevolutionaryCalendarDate frcDate = ComplicationUtils.getNow(this);
         Calendar endTime = Calendar.getInstance();
         endTime.add(Calendar.MILLISECOND, 86400);
         ComplicationData data = new ComplicationData.Builder(type)

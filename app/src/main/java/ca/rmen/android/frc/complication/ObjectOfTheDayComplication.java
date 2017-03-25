@@ -27,7 +27,7 @@ public class ObjectOfTheDayComplication extends ComplicationProviderService {
     @Override
     public void onComplicationUpdate(int complicationId, int type, ComplicationManager complicationManager) {
         ComplicationData data = new ComplicationData.Builder(type)
-                .setLongText(ComplicationText.plainText(ComplicationUtils.getNow().getDayOfYear()))
+                .setLongText(ComplicationText.plainText(ComplicationUtils.getNow(this).getDayOfYear()))
                 .build();
         complicationManager.updateComplicationData(complicationId, data);
     }

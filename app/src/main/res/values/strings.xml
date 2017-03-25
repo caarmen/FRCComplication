@@ -1,7 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  French Revolutionary Calendar Android Wear Complications
+  Copyright (C) 2017 Carmen Alvarez
+
+  This program is free software; you can redistribute it and/or
+  modify it under the terms of the GNU General Public License
+  as published by the Free Software Foundation; either version 3
+  of the License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, see <http://www.gnu.org/licenses/>.
+-->
+
 <resources>
     <string name="app_name">Revolutionary Calendar</string>
+    <string name="settings">Settings</string>
     <string name="complication_weekday">Weekday</string>
     <string name="complication_date">Date</string>
     <string name="complication_time">Decimal time</string>
     <string name="complication_object_of_the_day">Today\'s object</string>
+    <string name="setting_method">Calculation method</string>
+    <string name="setting_method_summary">How the first day of each year is determined: %s</string>
+    <string name="setting_roman_numeral">Roman numeral year</string>
+    <string name="setting_language">Language</string>
+    <string name="setting_language_summary">%s</string>
+    <string name="setting_key_language" translatable="false">setting_language</string>
+    <string name="setting_key_method" translatable="false">setting_method</string>
+    <string name="setting_key_roman_numeral" translatable="false">setting_roman_numeral</string>
+    <string name="setting_default_language" translatable="false">fr</string>
+
+    <string-array name="setting_method_labels">
+        <item>Romme</item>
+        <item>Equinox</item>
+        <item>von Mädler</item>
+    </string-array>
+    <string-array name="setting_method_values" translatable="false">
+        <item>1</item>
+        <item>0</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="setting_language_labels" translatable="false">
+        <item>Français</item>
+        <item>Català</item>
+        <item>Deutsch</item>
+        <item>English (day of year only)</item>
+        <item>Español</item>
+        <item>Italiano</item>
+    </string-array>
+    <string-array name="setting_language_values" translatable="false">
+        <item>fr</item>
+        <item>ca</item>
+        <item>de</item>
+        <item>en</item>
+        <item>es</item>
+        <item>it</item>
+    </string-array>
 </resources>

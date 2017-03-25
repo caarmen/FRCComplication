@@ -18,6 +18,10 @@
 
 package ca.rmen.android.frc.complication;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
@@ -29,8 +33,14 @@ final class ComplicationUtils {
         // prevent instantiation
     }
 
-    static FrenchRevolutionaryCalendarDate getNow() {
-        FrenchRevolutionaryCalendar frc = new FrenchRevolutionaryCalendar(Locale.getDefault(), FrenchRevolutionaryCalendar.CalculationMethod.ROMME);
+    static FrenchRevolutionaryCalendarDate getNow(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String language = prefs.getString(context.getString(R.string.setting_key_language), context.getString(R.string.setting_default_language));
+        Locale locale = new Locale(language);
+        String methodIndex = prefs.getString(context.getString(R.string.setting_key_method), "1");
+        FrenchRevolutionaryCalendar.CalculationMethod method = FrenchRevolutionaryCalendar.CalculationMethod.values()[Integer.valueOf(methodIndex)];
+        FrenchRevolutionaryCalendar frc = new FrenchRevolutionaryCalendar(locale, method);
         return frc.getDate((GregorianCalendar) GregorianCalendar.getInstance());
     }
+
 }
