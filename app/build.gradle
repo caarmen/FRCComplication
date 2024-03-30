@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 34
+    buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "ca.rmen.android.frc.complications"
         minSdkVersion 25
-        targetSdkVersion 25
+        targetSdkVersion 34
         versionCode 110
         versionName "1.1.0"
         resValue "string", "versionName", versionName
