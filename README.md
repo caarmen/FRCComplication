@@ -18,4 +18,4 @@ The following settings are available:
 * Displaying the date year in Roman numerals.
 * The language: This is used to display the month name, weekday name, and object of the day.
 
-<img src="screenshots/screenshot-settings.png"/>
+<img src="screenshots/screenshot-round-settings.png"/>
