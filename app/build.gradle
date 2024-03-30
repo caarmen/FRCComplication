@@ -3,7 +3,6 @@ apply plugin: 'com.android.application'
 android {
     namespace "ca.rmen.android.frc.complications"
     compileSdkVersion 34
-    buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "ca.rmen.android.frc.complications"
         minSdkVersion 25
