@@ -38,10 +38,10 @@ android {
 }
 
 dependencies {
-    compile 'com.google.android.support:wearable:2.0.0'
-    provided 'com.google.android.wearable:wearable:2.0.0'
-    compile 'com.google.android.gms:play-services-wearable:10.2.1'
-    compile 'ca.rmen:lib-french-revolutionary-calendar:1.5.2'
+    implementation 'com.google.android.support:wearable:2.1.0'
+    compileOnly 'com.google.android.wearable:wearable:2.1.0'
+    implementation 'com.google.android.gms:play-services-wearable:10.2.1'
+    implementation 'ca.rmen:lib-french-revolutionary-calendar:1.5.2'
 
 }
 
