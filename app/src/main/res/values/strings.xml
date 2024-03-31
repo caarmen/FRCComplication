@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?><!--
   French Revolutionary Calendar Android Wear Complications
-  Copyright (C) 2017 Carmen Alvarez
+  Copyright (C) 2017 - Present, Carmen Alvarez
 
   This program is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public License
@@ -33,7 +33,7 @@
     <string name="setting_key_method" translatable="false">setting_method</string>
     <string name="setting_key_roman_numeral" translatable="false">setting_roman_numeral</string>
     <string name="setting_default_language" translatable="false">fr</string>
-    <string name="about_copyright" translatable="false">Copyright © 2017 Carmen Alvarez</string>
+    <string name="about_copyright" translatable="false">Copyright © 2017 - Present, Carmen Alvarez</string>
     <string name="about_license">License: GNU GPLv3</string>
     <string name="about_source">Source code</string>
     <string name="about_wiki">About the calendar</string>

@@ -1,6 +1,6 @@
 /*
  * French Revolutionary Calendar Android Wear Complications
- * Copyright (C) 2017 Carmen Alvarez
+ * Copyright (C) 2017 - Present, Carmen Alvarez
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -21,9 +21,14 @@ package ca.rmen.android.frc.complications;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.support.wearable.complications.ComplicationProviderService;
-import android.support.wearable.complications.ProviderUpdateRequester;
+import androidx.preference.PreferenceManager;
+
+import androidx.wear.watchface.complications.data.ComplicationData;
+import androidx.wear.watchface.complications.data.LongTextComplicationData;
+import androidx.wear.watchface.complications.data.PlainComplicationText;
+import androidx.wear.watchface.complications.data.ShortTextComplicationData;
+import androidx.wear.watchface.complications.datasource.ComplicationDataSourceService;
+import androidx.wear.watchface.complications.datasource.ComplicationDataSourceUpdateRequester;
 
 import java.util.GregorianCalendar;
 import java.util.Locale;
@@ -43,10 +48,9 @@ final class ComplicationUtils {
         updateComplications(context, WeekdayComplication.class);
     }
 
-    private static void updateComplications(Context context, Class<? extends ComplicationProviderService> providerClass) {
-        ComponentName componentName = new ComponentName(context, providerClass);
-        ProviderUpdateRequester requester = new ProviderUpdateRequester(context, componentName);
-        requester.requestUpdateAll();
+    private static void updateComplications(Context context, Class<? extends ComplicationDataSourceService> dataSourceClass) {
+        ComponentName componentName = new ComponentName(context, dataSourceClass);
+        ComplicationDataSourceUpdateRequester.create(context, componentName).requestUpdateAll();
     }
 
     static FrenchRevolutionaryCalendarDate getNow(Context context) {
@@ -54,9 +58,23 @@ final class ComplicationUtils {
         String language = prefs.getString(context.getString(R.string.setting_key_language), context.getString(R.string.setting_default_language));
         Locale locale = new Locale(language);
         String methodIndex = prefs.getString(context.getString(R.string.setting_key_method), "1");
-        FrenchRevolutionaryCalendar.CalculationMethod method = FrenchRevolutionaryCalendar.CalculationMethod.values()[Integer.valueOf(methodIndex)];
+        FrenchRevolutionaryCalendar.CalculationMethod method = FrenchRevolutionaryCalendar.CalculationMethod.values()[Integer.parseInt(methodIndex)];
         FrenchRevolutionaryCalendar frc = new FrenchRevolutionaryCalendar(locale, method);
         return frc.getDate((GregorianCalendar) GregorianCalendar.getInstance());
+    }
+
+    static ComplicationData getShortTextComplicationData(String text) {
+        return new ShortTextComplicationData.Builder(
+                new PlainComplicationText.Builder(text).build(),
+                new PlainComplicationText.Builder(text).build()
+        ).build();
+    }
+
+    static ComplicationData getLongTextComplicationData(String text) {
+        return new LongTextComplicationData.Builder(
+                new PlainComplicationText.Builder(text).build(),
+                new PlainComplicationText.Builder(text).build()
+        ).build();
     }
 
 }

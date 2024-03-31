@@ -1,6 +1,6 @@
 /*
  * French Revolutionary Calendar Android Wear Complications
- * Copyright (C) 2017 Carmen Alvarez
+ * Copyright (C) 2017 - Present, Carmen Alvarez
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,11 +18,12 @@
 
 package ca.rmen.android.frc.complications;
 
-import android.app.Activity;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 
-public class AboutActivity extends Activity {
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.FragmentActivity;
+
+public class AboutActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

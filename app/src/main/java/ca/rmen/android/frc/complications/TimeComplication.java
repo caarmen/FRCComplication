@@ -1,6 +1,6 @@
 /*
  * French Revolutionary Calendar Android Wear Complications
- * Copyright (C) 2017 Carmen Alvarez
+ * Copyright (C) 2017 - Present, Carmen Alvarez
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,25 +18,43 @@
 
 package ca.rmen.android.frc.complications;
 
-import android.support.wearable.complications.ComplicationData;
-import android.support.wearable.complications.ComplicationManager;
-import android.support.wearable.complications.ComplicationProviderService;
-import android.support.wearable.complications.ComplicationText;
+
+import static ca.rmen.android.frc.complications.ComplicationUtils.getShortTextComplicationData;
+
+import android.os.RemoteException;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.wear.watchface.complications.data.ComplicationData;
+import androidx.wear.watchface.complications.data.ComplicationType;
+import androidx.wear.watchface.complications.datasource.ComplicationDataSourceService;
+import androidx.wear.watchface.complications.datasource.ComplicationRequest;
 
 import java.util.Calendar;
 import java.util.Locale;
 
 import ca.rmen.lfrc.FrenchRevolutionaryCalendarDate;
 
-public class TimeComplication extends ComplicationProviderService {
+public class TimeComplication extends ComplicationDataSourceService {
+    @Nullable
     @Override
-    public void onComplicationUpdate(int complicationId, int type, ComplicationManager complicationManager) {
+    public ComplicationData getPreviewData(@NonNull ComplicationType complicationType) {
+        return getShortTextComplicationData(getText());
+    }
+
+    @Override
+    public void onComplicationRequest(@NonNull ComplicationRequest complicationRequest, @NonNull ComplicationRequestListener complicationRequestListener) {
+        try {
+            complicationRequestListener.onComplicationData(getShortTextComplicationData(getText()));
+        } catch (RemoteException e) {
+            throw new RuntimeException("Should migrate to kotlin", e);
+        }
+    }
+
+    private String getText() {
         FrenchRevolutionaryCalendarDate frcDate = ComplicationUtils.getNow(this);
         Calendar endTime = Calendar.getInstance();
         endTime.add(Calendar.MILLISECOND, 86400);
-        ComplicationData data = new ComplicationData.Builder(type)
-                .setShortText(ComplicationText.plainText(String.format(Locale.getDefault(), "%d:%02d", frcDate.hour, frcDate.minute)))
-                .build();
-        complicationManager.updateComplicationData(complicationId, data);
+        return String.format(Locale.getDefault(), "%d:%02d", frcDate.hour, frcDate.minute);
     }
 }

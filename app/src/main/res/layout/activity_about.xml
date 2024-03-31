@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?><!--
   French Revolutionary Calendar Android Wear Complications
-  Copyright (C) 2017 Carmen Alvarez
+  Copyright (C) 2017 - Present, Carmen Alvarez
 
   This program is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public License
@@ -19,7 +19,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <android.support.wearable.view.BoxInsetLayout
+    <androidx.wear.widget.BoxInsetLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="ca.rmen.android.frc.complications.AboutActivity">
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="none"
-            app:layout_box="left|right">
+            android:layout_gravity="start|end">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -99,5 +99,5 @@
             </LinearLayout>
         </ScrollView>
 
-    </android.support.wearable.view.BoxInsetLayout>
+    </androidx.wear.widget.BoxInsetLayout>
 </layout>

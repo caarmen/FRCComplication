@@ -2,17 +2,17 @@ apply plugin: 'com.android.application'
 
 android {
     namespace "ca.rmen.android.frc.complications"
-    compileSdkVersion 34
+    compileSdk 34
     defaultConfig {
         applicationId "ca.rmen.android.frc.complications"
-        minSdkVersion 25
+        minSdkVersion 26
         targetSdkVersion 34
         versionCode 110
         versionName "1.1.0"
         resValue "string", "versionName", versionName
     }
-    dataBinding {
-        enabled true
+    buildFeatures {
+        dataBinding true
     }
 
     if(project.hasProperty("keyStore")) {
@@ -38,18 +38,9 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.android.support:wearable:2.8.0'
-    compileOnly 'com.google.android.wearable:wearable:2.8.0'
-    implementation 'com.google.android.gms:play-services-wearable:16.0.1'
     implementation 'ca.rmen:lib-french-revolutionary-calendar:1.8.2'
-
-}
-
-configurations.all {
-    resolutionStrategy {
-        force 'com.android.support:support-v4:28.0.0'
-        force 'com.android.support:support-annotations:28.0.0'
-        force 'com.android.support:percent:28.0.0'
-        force 'com.android.support:recyclerview-v7:28.0.0'
-    }
+    implementation "androidx.wear.watchface:watchface-complications-data-source:1.2.1"
+    implementation "androidx.wear:wear-remote-interactions:1.0.0"
+    implementation "androidx.wear:wear:1.3.0"
+    implementation "androidx.preference:preference:1.2.1"
 }

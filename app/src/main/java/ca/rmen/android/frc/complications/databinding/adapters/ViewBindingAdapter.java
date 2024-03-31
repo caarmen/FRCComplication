@@ -1,6 +1,6 @@
 /*
  * French Revolutionary Calendar Android Wear Complications
- * Copyright (C) 2017 Carmen Alvarez
+ * Copyright (C) 2017 - Present, Carmen Alvarez
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -21,34 +21,33 @@ package ca.rmen.android.frc.complications.databinding.adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.databinding.BindingAdapter;
+
+import androidx.wear.remote.interactions.RemoteActivityHelper;
+import androidx.wear.widget.ConfirmationOverlay;
+import androidx.databinding.BindingAdapter;
 import android.net.Uri;
-import android.support.wearable.view.ConfirmationOverlay;
 import android.view.View;
 
-import com.google.android.wearable.intent.RemoteIntent;
+import java.util.concurrent.Executors;
 
 import ca.rmen.android.frc.complications.R;
 
 public class ViewBindingAdapter {
     @BindingAdapter("link")
     public static void setLink(final View view, final String link) {
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RemoteIntent.startRemoteActivity(view.getContext(),
-                        new Intent(Intent.ACTION_VIEW)
-                                .setData(Uri.parse(link))
-                                .addCategory(Intent.CATEGORY_BROWSABLE),
-                        null /*resultReceiver*/);
-                Context context = view.getContext();
-                if (context instanceof Activity) {
-                    // 'Open on phone' confirmation overlay
-                    new ConfirmationOverlay()
-                            .setType(ConfirmationOverlay.OPEN_ON_PHONE_ANIMATION)
-                            .setMessage(view.getContext().getString(R.string.about_link_opened_on_phone))
-                            .showOn((Activity) context);
-                }
+        view.setOnClickListener(v -> {
+            new RemoteActivityHelper(v.getContext(), Executors.newSingleThreadExecutor()).startRemoteActivity(
+                    new Intent(Intent.ACTION_VIEW)
+                            .setData(Uri.parse(link))
+                            .addCategory(Intent.CATEGORY_BROWSABLE),
+                    null /*resultReceiver*/);
+            Context context = view.getContext();
+            if (context instanceof Activity) {
+                // 'Open on phone' confirmation overlay
+                new ConfirmationOverlay()
+                        .setType(ConfirmationOverlay.OPEN_ON_PHONE_ANIMATION)
+                        .setMessage((CharSequence) view.getContext().getString(R.string.about_link_opened_on_phone))
+                        .showOn((Activity) context);
             }
         });
     }

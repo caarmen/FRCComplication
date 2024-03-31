@@ -1,6 +1,6 @@
 /*
  * French Revolutionary Calendar Android Wear Complications
- * Copyright (C) 2017 Carmen Alvarez
+ * Copyright (C) 2017 - Present, Carmen Alvarez
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -17,14 +17,17 @@
  */
 package ca.rmen.android.frc.complications;
 
-import android.app.Activity;
+
 import android.content.ComponentName;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
-import android.support.annotation.Nullable;
-import android.support.wearable.complications.ComplicationProviderService;
 
-public class SettingsActivity extends Activity {
+import androidx.fragment.app.FragmentActivity;
+import androidx.wear.watchface.complications.datasource.ComplicationDataSourceService;
+
+import androidx.annotation.Nullable;
+
+public class SettingsActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +47,7 @@ public class SettingsActivity extends Activity {
         public void onCreate(@Nullable Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.settings);
-            ComponentName providerService = getActivity().getIntent().getParcelableExtra(ComplicationProviderService.EXTRA_CONFIG_PROVIDER_COMPONENT);
+            ComponentName providerService = getActivity().getIntent().getParcelableExtra(ComplicationDataSourceService.EXTRA_CONFIG_DATA_SOURCE_COMPONENT);
             if (providerService != null) {
                 String providerClassName = providerService.getClassName();
                 if (!DateComplication.class.getName().equals(providerClassName)) {

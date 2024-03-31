@@ -1,6 +1,6 @@
 /*
  * French Revolutionary Calendar Android Wear Complications
- * Copyright (C) 2017 Carmen Alvarez
+ * Copyright (C) 2017 - Present, Carmen Alvarez
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,17 +18,33 @@
 
 package ca.rmen.android.frc.complications;
 
-import android.support.wearable.complications.ComplicationData;
-import android.support.wearable.complications.ComplicationManager;
-import android.support.wearable.complications.ComplicationProviderService;
-import android.support.wearable.complications.ComplicationText;
+import static ca.rmen.android.frc.complications.ComplicationUtils.getLongTextComplicationData;
 
-public class ObjectOfTheDayComplication extends ComplicationProviderService {
+import android.os.RemoteException;
+
+import androidx.annotation.NonNull;
+import androidx.wear.watchface.complications.data.ComplicationData;
+import androidx.wear.watchface.complications.data.ComplicationType;
+import androidx.wear.watchface.complications.datasource.ComplicationDataSourceService;
+import androidx.wear.watchface.complications.datasource.ComplicationRequest;
+
+public class ObjectOfTheDayComplication extends ComplicationDataSourceService {
+
     @Override
-    public void onComplicationUpdate(int complicationId, int type, ComplicationManager complicationManager) {
-        ComplicationData data = new ComplicationData.Builder(type)
-                .setLongText(ComplicationText.plainText(ComplicationUtils.getNow(this).getObjectOfTheDay()))
-                .build();
-        complicationManager.updateComplicationData(complicationId, data);
+    public ComplicationData getPreviewData(@NonNull ComplicationType complicationType) {
+        return getLongTextComplicationData(getText());
+    }
+
+    @Override
+    public void onComplicationRequest(@NonNull ComplicationRequest complicationRequest, @NonNull ComplicationRequestListener complicationRequestListener) {
+        try {
+            complicationRequestListener.onComplicationData(getLongTextComplicationData(getText()));
+        } catch (RemoteException e) {
+            throw new RuntimeException("Should migrate to kotlin", e);
+        }
+    }
+
+    private String getText() {
+        return ComplicationUtils.getNow(this).getObjectOfTheDay();
     }
 }
