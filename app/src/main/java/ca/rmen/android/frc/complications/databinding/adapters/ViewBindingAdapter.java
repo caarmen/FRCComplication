@@ -46,7 +46,7 @@ public class ViewBindingAdapter {
                 // 'Open on phone' confirmation overlay
                 new ConfirmationOverlay()
                         .setType(ConfirmationOverlay.OPEN_ON_PHONE_ANIMATION)
-                        .setMessage(view.getContext().getString(R.string.about_link_opened_on_phone))
+                        .setMessage((CharSequence) view.getContext().getString(R.string.about_link_opened_on_phone))
                         .showOn((Activity) context);
             }
         });
