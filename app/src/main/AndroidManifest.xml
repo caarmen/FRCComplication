@@ -16,8 +16,7 @@
   along with this program; if not, see <http://www.gnu.org/licenses/>.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="ca.rmen.android.frc.complications">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-feature android:name="android.hardware.type.watch" />
 
@@ -31,6 +30,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <service
             android:name="ca.rmen.android.frc.complications.WeekdayComplication"
+            android:exported="true"
             android:icon="@drawable/ic_flower"
             android:label="@string/complication_weekday"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
@@ -50,6 +50,7 @@
         </service>
         <service
             android:name="ca.rmen.android.frc.complications.DateComplication"
+            android:exported="true"
             android:icon="@drawable/ic_flower"
             android:label="@string/complication_date"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
@@ -69,6 +70,7 @@
         </service>
         <service
             android:name="ca.rmen.android.frc.complications.TimeComplication"
+            android:exported="true"
             android:icon="@drawable/ic_flower"
             android:label="@string/complication_time"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
@@ -85,6 +87,7 @@
         </service>
         <service
             android:name="ca.rmen.android.frc.complications.ObjectOfTheDayComplication"
+            android:exported="true"
             android:icon="@drawable/ic_flower"
             android:label="@string/complication_object_of_the_day"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
@@ -103,7 +106,7 @@
             </intent-filter>
         </service>
 
-        <activity android:name="ca.rmen.android.frc.complications.SettingsActivity">
+        <activity android:name="ca.rmen.android.frc.complications.SettingsActivity" android:exported="true">
             <intent-filter>
                 <action android:name="ca.rmen.android.complications.settings" />
 
@@ -113,7 +116,7 @@
         </activity>
         <activity
             android:name="ca.rmen.android.frc.complications.AboutActivity"
-            android:label="@string/about">
+            android:label="@string/about" android:exported="false">
             <!-- Declare the intent filter to open this activity from the settings screen -->
             <intent-filter>
                 <action android:name="ca.rmen.android.frc.complications.AboutActivity" />
