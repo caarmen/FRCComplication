@@ -17,15 +17,17 @@
  */
 package ca.rmen.android.frc.complications;
 
-import android.app.Activity;
+
 import android.content.ComponentName;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
+
+import androidx.fragment.app.FragmentActivity;
 import androidx.wear.watchface.complications.datasource.ComplicationDataSourceService;
 
 import androidx.annotation.Nullable;
 
-public class SettingsActivity extends Activity {
+public class SettingsActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
