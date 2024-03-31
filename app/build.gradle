@@ -6,7 +6,7 @@ android {
     defaultConfig {
         applicationId "ca.rmen.android.frc.complications"
         minSdkVersion 26
-        targetSdkVersion 34
+        targetSdkVersion 33
         versionCode 110
         versionName "1.1.0"
         resValue "string", "versionName", versionName
