@@ -18,24 +18,32 @@
 
 package ca.rmen.android.frc.complications;
 
-import android.preference.PreferenceManager;
-import android.support.wearable.complications.ComplicationData;
-import android.support.wearable.complications.ComplicationManager;
-import android.support.wearable.complications.ComplicationProviderService;
-import android.support.wearable.complications.ComplicationText;
+import static ca.rmen.android.frc.complications.ComplicationUtils.getLongTextComplicationData;
+
+import android.os.RemoteException;
+import androidx.preference.PreferenceManager;
+
+import androidx.annotation.NonNull;
+import androidx.wear.watchface.complications.data.ComplicationData;
+import androidx.wear.watchface.complications.data.ComplicationType;
+import androidx.wear.watchface.complications.datasource.ComplicationDataSourceService;
+import androidx.wear.watchface.complications.datasource.ComplicationRequest;
 
 import ca.rmen.lfrc.FrenchRevolutionaryCalendarDate;
 
-public class DateComplication extends ComplicationProviderService {
+public class DateComplication extends ComplicationDataSourceService {
     @Override
-    public void onComplicationUpdate(int complicationId, int type, ComplicationManager complicationManager) {
-        FrenchRevolutionaryCalendarDate frcDate = ComplicationUtils.getNow(this);
-        boolean useRomanNumeral = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.setting_key_roman_numeral), false);
-        String year = useRomanNumeral ? getRomanNumeral(frcDate.year) : String.valueOf(frcDate.year);
-        ComplicationData data = new ComplicationData.Builder(type)
-                .setLongText(ComplicationText.plainText(frcDate.dayOfMonth + " " + frcDate.getMonthName() + " " + year))
-                .build();
-        complicationManager.updateComplicationData(complicationId, data);
+    public ComplicationData getPreviewData(@NonNull ComplicationType complicationType) {
+        return getLongTextComplicationData(getText());
+    }
+
+    @Override
+    public void onComplicationRequest(@NonNull ComplicationRequest complicationRequest, @NonNull ComplicationRequestListener complicationRequestListener) {
+        try {
+            complicationRequestListener.onComplicationData(getLongTextComplicationData(getText()));
+        } catch (RemoteException e) {
+            throw new RuntimeException("Should migrate to kotlin", e);
+        }
     }
 
     // http://stackoverflow.com/questions/12967896/converting-integers-to-roman-numerals-java
@@ -59,5 +67,13 @@ public class DateComplication extends ComplicationProviderService {
                 RN_100[number % 1000 / 100] +
                 RN_10[number % 100 / 10] +
                 RN_1[number % 10];
+    }
+
+    private String getText() {
+        FrenchRevolutionaryCalendarDate frcDate = ComplicationUtils.getNow(this);
+        boolean useRomanNumeral = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.setting_key_roman_numeral), false);
+        String year = useRomanNumeral ? getRomanNumeral(frcDate.year) : String.valueOf(frcDate.year);
+        return frcDate.dayOfMonth + " " + frcDate.getMonthName() + " " + year;
+
     }
 }

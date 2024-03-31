@@ -18,17 +18,37 @@
 
 package ca.rmen.android.frc.complications;
 
-import android.support.wearable.complications.ComplicationData;
-import android.support.wearable.complications.ComplicationManager;
-import android.support.wearable.complications.ComplicationProviderService;
-import android.support.wearable.complications.ComplicationText;
 
-public class WeekdayComplication extends ComplicationProviderService {
+import static ca.rmen.android.frc.complications.ComplicationUtils.getShortTextComplicationData;
+
+import android.os.RemoteException;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.wear.watchface.complications.data.ComplicationData;
+import androidx.wear.watchface.complications.data.ComplicationType;
+import androidx.wear.watchface.complications.datasource.ComplicationDataSourceService;
+import androidx.wear.watchface.complications.datasource.ComplicationRequest;
+
+public class WeekdayComplication extends ComplicationDataSourceService {
+
+    @Nullable
     @Override
-    public void onComplicationUpdate(int complicationId, int type, ComplicationManager complicationManager) {
-        ComplicationData data = new ComplicationData.Builder(type)
-                .setShortText(ComplicationText.plainText(ComplicationUtils.getNow(this).getWeekdayName()))
-                .build();
-        complicationManager.updateComplicationData(complicationId, data);
+    public ComplicationData getPreviewData(@NonNull ComplicationType complicationType) {
+        return getShortTextComplicationData(getText());
+    }
+
+    @Override
+    public void onComplicationRequest(@NonNull ComplicationRequest complicationRequest, @NonNull ComplicationRequestListener complicationRequestListener) {
+        try {
+            complicationRequestListener.onComplicationData(getShortTextComplicationData(getText()));
+        } catch (RemoteException e) {
+            throw new RuntimeException("Should migrate to kotlin", e);
+        }
+    }
+
+    private String getText() {
+        return ComplicationUtils.getNow(this).getWeekdayName();
     }
 }
+

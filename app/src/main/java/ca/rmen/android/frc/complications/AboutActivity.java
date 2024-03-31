@@ -19,8 +19,9 @@
 package ca.rmen.android.frc.complications;
 
 import android.app.Activity;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+
+import androidx.databinding.DataBindingUtil;
 
 public class AboutActivity extends Activity {
 

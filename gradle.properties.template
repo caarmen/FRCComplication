@@ -1,3 +1,4 @@
+android.useAndroidX=true
 keyStore=/path/to/key.keystore
 keyAlias=my-key-alias
 keyStorePassword=some-password
