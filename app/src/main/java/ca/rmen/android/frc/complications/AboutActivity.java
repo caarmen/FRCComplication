@@ -18,12 +18,12 @@
 
 package ca.rmen.android.frc.complications;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.FragmentActivity;
 
-public class AboutActivity extends FragmentActivity {
+public class AboutActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

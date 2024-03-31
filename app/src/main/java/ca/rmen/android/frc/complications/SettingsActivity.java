@@ -20,15 +20,12 @@ package ca.rmen.android.frc.complications;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.os.Bundle;
-
-import androidx.fragment.app.FragmentActivity;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceFragmentCompat;
+import android.preference.PreferenceFragment;
 import androidx.wear.watchface.complications.datasource.ComplicationDataSourceService;
 
 import androidx.annotation.Nullable;
 
-public class SettingsActivity extends FragmentActivity {
+public class SettingsActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,20 +40,16 @@ public class SettingsActivity extends FragmentActivity {
         super.onDestroy();
     }
 
-    public static class SettingsFragment extends PreferenceFragmentCompat {
-
+    public static class SettingsFragment extends PreferenceFragment {
         @Override
-        public void onCreatePreferences(@Nullable Bundle savedInstanceState, String rootKey) {
+        public void onCreate(@Nullable Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.settings);
-            Activity activity = getActivity();
-            if (activity == null) return;
-            Preference romanNumeralPreference = findPreference(getString(R.string.setting_key_roman_numeral));
-            if (romanNumeralPreference == null) return;
-            ComponentName providerService = activity.getIntent().getParcelableExtra(ComplicationDataSourceService.EXTRA_CONFIG_DATA_SOURCE_COMPONENT);
+            ComponentName providerService = getActivity().getIntent().getParcelableExtra(ComplicationDataSourceService.EXTRA_CONFIG_DATA_SOURCE_COMPONENT);
             if (providerService != null) {
                 String providerClassName = providerService.getClassName();
                 if (!DateComplication.class.getName().equals(providerClassName)) {
-                    getPreferenceScreen().removePreference(romanNumeralPreference);
+                    getPreferenceScreen().removePreference(findPreference(getString(R.string.setting_key_roman_numeral)));
                 }
             }
         }
