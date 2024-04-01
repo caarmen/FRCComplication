@@ -7,8 +7,8 @@ android {
         applicationId "ca.rmen.android.frc.complications"
         minSdkVersion 26
         targetSdkVersion 33
-        versionCode 110
-        versionName "1.1.0"
+        versionCode 111
+        versionName "1.1.1"
         resValue "string", "versionName", versionName
     }
     buildFeatures {
