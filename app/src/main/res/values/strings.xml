@@ -37,7 +37,7 @@
     <string name="about_license">License: GNU GPLv3</string>
     <string name="about_source">Source code</string>
     <string name="about_wiki">About the calendar</string>
-    <string name="about_credits">Credits:</string>
+    <string name="about_credits">Credits</string>
     <string name="about_credits_equinox_tool">AstroLib C++ program by Mark Huss, to determine the first day of autumn in each year</string>
     <string name="about_credits_roman_numeral_algorithm">Fraser Chapman for the Roman numeral algorithm</string>
     <string name="about_link_license" translatable="false">https://github.com/caarmen/FRCComplication/blob/master/LICENSE.md</string>
