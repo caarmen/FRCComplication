@@ -28,4 +28,14 @@
         <item name="android:paddingBottom">8dp</item>
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
     </style>
+    <style name="CustomAlertDialogTheme" parent="@android:style/Theme.DeviceDefault.Dialog.Alert">
+        <item name="android:alertDialogStyle">@style/CustomAlertDialogStyle</item>
+    </style>
+    <!-- parent @style/AlertDialog.DeviceDefault is private -->
+    <style name="CustomAlertDialogStyle">
+        <item name="listLayout">@layout/copy_select_dialog</item>
+    </style>
+    <style name="AppTheme" parent="@android:style/Theme.DeviceDefault">
+        <item name="android:alertDialogTheme">@style/CustomAlertDialogTheme</item>
+    </style>
 </resources>
