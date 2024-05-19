@@ -20,7 +20,7 @@
     android:key="widget_settings"
     android:title="@string/settings">
 
-    <ListPreference
+    <ca.rmen.android.frc.complications.CustomListPreference
         android:defaultValue="1"
         android:dialogTitle="@string/setting_method"
         android:entries="@array/setting_method_labels"
@@ -35,7 +35,7 @@
         android:key="@string/setting_key_roman_numeral"
         android:title="@string/setting_roman_numeral" />
 
-    <ListPreference
+    <ca.rmen.android.frc.complications.CustomListPreference
         android:defaultValue="@string/setting_default_language"
         android:dialogTitle="@string/setting_language"
         android:entries="@array/setting_language_labels"
