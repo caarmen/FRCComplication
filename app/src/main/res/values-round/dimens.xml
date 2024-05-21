@@ -17,4 +17,6 @@
 -->
 <resources>
     <dimen name="about_horizontal_padding">36dp</dimen>
+    <dimen name="list_preference_horizontal_padding">36dp</dimen>
+    <dimen name="select_dialog_drawable_padding_start_material">8dp</dimen>
 </resources>
